@@ -1,0 +1,13 @@
+---
+# tasks file for configure_jenkins
+
+- name: Copy jenkins.service to systemd
+  copy: 
+    src: roles/configure_jenkins/files/jenkins.service
+    dest: /etc/systemd/system/
+
+- name: Enable and Start jenkins.service
+  service:
+    name: jenkins
+    enabled: yes
+    state: started

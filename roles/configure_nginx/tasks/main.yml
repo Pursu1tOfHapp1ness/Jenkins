@@ -1,0 +1,18 @@
+---
+# tasks file for configure_nginx
+- name: Enable and start nginx.service
+  service:
+    name: nginx
+    enabled: yes
+    state: started
+
+- name: Enable proxy_pass for jenkins
+  copy:
+    src: roles/configure_nginx/files/nginx.conf
+    dest: /etc/nginx/nginx.conf
+  
+- name: Restart nginx for applying changes
+  service:
+    name: nginx
+    state: restarted
+

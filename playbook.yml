@@ -1,0 +1,11 @@
+- hosts: jenkins
+  become: yes
+  
+  roles:
+    - create_user
+    - install_services
+    - configure_jenkins
+    - configure_nginx
+
+
+
